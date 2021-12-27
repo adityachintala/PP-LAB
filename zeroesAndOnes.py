@@ -1,13 +1,16 @@
-# Given a positive integer 'x' (with even number of digits in it), compute the difference between the sum of the
-# digits occurring in the alternate positions (starting from the first position) and the sum of the digits occurring in the
-# alternate positions, starting from the last rightmost position of 'x'.
+# Given a number A which contains only digits 0's and 1's. Your task is to make all digits same by just flipping
+# one digit (i.e. 0 to 1 or 1 to 0) only. If it is possible to make all the digits same by just flippingone digit
+# then print 'YES' else print 'NO'.
 
 n = input("Enter number : ")
-if len(n) % 2 != 0 or int(n) <= 0:
-    print("Invalid")
+l = len(n)
+c1, c2 = 0, 0
+for i in range(l):
+    if n[i] == '0':
+        c1 += 1
+    else:
+        c2 += 1
+if c1 == l - 1 or c2 == l - 1:
+    print("YES")
 else:
-    s1, s2 = 0, 0
-    for i in range(0, len(n), 2):
-        s1 += int(n[i])
-        s2 += int(n[i + 1])
-    print(abs(s1 - s2))
+    print("NO")
