@@ -4,3 +4,9 @@ Input Format: The first line of input contains a single integer n denoting the n
 Output Format: Print a single line containing the student IDs of the students which were absent, space-separated and in increasing order.
 """
 
+n = int(input("Enter strength of class: "))
+l = [int(i) for i in input("Enter attendance: ").split()]
+print("List of student IDs of the students which were absent:")
+for i in range(1, n + 1):
+    if i not in l:
+        print(i, end=" ")
