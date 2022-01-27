@@ -12,15 +12,13 @@
 
 
 def collatz(n):
-    if n % 2 == 0:
-        return n // 2
-    else:
-        return 3 * n + 1
+    return n // 2 if n % 2 == 0 else 3 * n + 1
 
 
-list = []
-n = int(input("Enter number: "))
-while n != 1:
-    n = collatz(n)
-    list.append(n)
-print(list)
+try:
+    n = int(input('Enter a number: '))
+    while n != 1:
+        n = collatz(n)
+        print(n, end=' ')
+except ValueError:
+    print('Please enter a valid INTEGER')

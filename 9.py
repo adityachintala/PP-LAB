@@ -3,16 +3,14 @@
 file = open("sample.txt", "r")
 lines = file.readlines()
 file.close()
+print('Reverse order:')
+for line in lines[::-1]:
+    print(line, end='\n')
+w = 0
+c = 0
 for line in lines:
-    print(line[::-1])
-file = open("sample.txt", "r")
-lines = file.readlines()
-file.close()
-words = 0
-characters = 0
-for line in lines:
-    words += len(line.split())
-    characters += len(line)
-print("Words =", words)
-print("Characters =", characters)
-print("Number of lines =", len(lines))
+    w += len(line.split())
+    c += len(line) - line.count('\n')
+print("Number of lines:", len(lines))
+print("Number of words:", w)
+print("Number of characters:", c)
