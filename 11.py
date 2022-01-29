@@ -3,16 +3,18 @@
 
 # Program :
 
+import re
+
 file = open('text.txt', 'r')
 file1 = open('phone.txt', 'w')
 file2 = open('email.txt', 'w')
 text = file.read().split()
 file.close()
-print(text)
 for i in text:
-    if '@' in i:
-        file2.write(i + '\n')
-    elif len(i) == 10:
+    if all(c.isdigit() for c in i):
         file1.write(i + '\n')
+    if re.match(r'[\w\.-]+@[\w\.-]+', i):
+        file2.write(i + '\n')
 file1.close()
 file2.close()
+print('Done')
